@@ -1,0 +1,20 @@
+{% extends 'blogme/base.html' %}
+
+{% block content %}
+
+
+        <h1 class='posttitle loader'>{{ post.title }}</h1>
+
+        {% if post.published_date %}
+            <div class="date postdate">
+                {{ post.published_date }}
+            </div>
+
+        {% else %}
+            <a class="btn btn-outline-dark" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
+        {% endif %}
+
+      <p class='postcontent' >{{ post.content|safe|linebreaksbr }}</p>
+
+
+{% endblock %}
